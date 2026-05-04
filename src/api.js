@@ -1,16 +1,17 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://helpdesk-backed-44jk.vercel.app/api',
+  baseURL: 'https://cupbearer-overcast-domain.ngrok-free.dev/api',
 });
 
-// Otomatis tambahkan token ke setiap request
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = Bearer ${token};
   }
+  config.headers['ngrok-skip-browser-warning'] = 'true';
   return config;
 });
 
 export default API;
+
